@@ -49,7 +49,7 @@ public class BookController {
         if (book.getId() != id) {
             throw new BookIdMismatchException();
         }
-        bookRepository.findById(id).orElseThrow();
+        bookRepository.findById(id).orElseThrow(BookNotFoundException::new);
         return bookRepository.save(book);
     }
 }
