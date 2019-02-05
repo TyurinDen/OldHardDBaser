@@ -1,7 +1,6 @@
 package com.github.tyurinden.oldharddbaser.db.models;
 
 import lombok.Getter;
-
 import javax.persistence.*;
 
 @Entity
@@ -17,5 +16,4 @@ public class Book {
 
     @Column(nullable = false)
     private String author;
-
 }

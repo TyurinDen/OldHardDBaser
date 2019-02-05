@@ -2,6 +2,8 @@ package com.github.tyurinden.oldharddbaser.controllers;
 
 import com.github.tyurinden.oldharddbaser.db.dao.BookRepository;
 import com.github.tyurinden.oldharddbaser.db.models.Book;
+import com.github.tyurinden.oldharddbaser.exceptions.BookIdMismatchException;
+import com.github.tyurinden.oldharddbaser.exceptions.BookNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -45,9 +47,9 @@ public class BookController {
     @PutMapping("/{id}")
     public Book updateBook(@RequestBody Book book, @PathVariable Long id) {
         if (book.getId() != id) {
-            throw new BookMismatchException();
+            throw new BookIdMismatchException();
         }
-        bookRepository.findById(id).orElseThrow(BookNotFoundException::new);
+        bookRepository.findById(id).orElseThrow();
         return bookRepository.save(book);
     }
 }
