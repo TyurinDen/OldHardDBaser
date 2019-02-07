@@ -1,6 +1,5 @@
-package java.com.github.tyurinden.oldharddbaser;
+package com.github.tyurinden.oldharddbaser;
 
-import com.github.tyurinden.oldharddbaser.OldHardDBaser;
 import com.github.tyurinden.oldharddbaser.db.models.Book;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
